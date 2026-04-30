@@ -1,611 +1,628 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>未経験からIT営業エンジニアへ成長するためのロードマップ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未経験からIT営業エンジニアへ成長するためのロードマップ</title>
   <style>
     :root {
-      --navy: #0f2341;
-      --navy-2: #17375e;
-      --blue: #2f6fb3;
       --navy: #10233f;
-      --navy-2: #18395f;
-      --blue: #2d6fb2;
+      --blue: #2563a8;
       --blue-soft: #eaf3fc;
-      --gray-900: #182235;
-      --gray-700: #475569;
-      --gray-500: #6b778a;
-      --gray-300: #dbe2ea;
-      --gray-700: #4b5568;
-      --gray-500: #738094;
-      --gray-300: #d7dee8;
-      --gray-200: #e8edf3;
-      --gray-100: #f6f8fb;
+      --gray-900: #172033;
+      --gray-700: #4c5870;
+      --gray-500: #758197;
+      --gray-200: #e7ebf1;
+      --gray-100: #f5f7fa;
       --white: #ffffff;
-      --max: 1080px;
-      --radius: 8px;
-      --shadow: 0 18px 48px rgba(15, 35, 65, 0.08);
-      --shadow: 0 18px 42px rgba(16, 35, 63, 0.08);
     }
 
     * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--gray-900);
+      background: var(--white);
+      font-family: system-ui, sans-serif;
+      line-height: 1.8;
+    }
 
     .page {
       min-height: 100vh;
-      background: linear-gradient(180deg, #f5f8fc 0, #ffffff 420px);
-      background: linear-gradient(180deg, #f5f8fc 0, #ffffff 390px);
+      background: linear-gradient(180deg, var(--gray-100) 0, var(--white) 360px);
     }
 
     .container {
+      width: min(100% - 40px, 1040px);
+      margin: 0 auto;
     }
 
-    .hero {
-      padding: 58px 0 34px;
-      padding: 58px 0 36px;
+    header {
+      padding: 56px 0 36px;
       border-bottom: 1px solid var(--gray-200);
     }
 
-    .hero__tag {
-    .hero__label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
+    main {
+      padding: 40px 0 64px;
     }
 
-    .hero__tag::before {
-    .hero__label::before {
-      content: "";
-      width: 34px;
-      height: 2px;
-      background: var(--blue);
+    footer {
+      padding: 28px 0 40px;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      font-size: 14px;
     }
 
-    .hero h1 {
-      max-width: 900px;
     h1,
     h2,
     h3 {
       margin: 0;
       color: var(--navy);
-      font-size: clamp(2rem, 4.6vw, 3.6rem);
-      line-height: 1.28;
       line-height: 1.35;
-      letter-spacing: 0;
     }
 
     h1 {
       max-width: 900px;
-      font-size: clamp(2rem, 4.7vw, 3.6rem);
-      font-weight: 850;
+      font-size: clamp(30px, 5vw, 52px);
     }
 
     h2 {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: clamp(1.45rem, 2.4vw, 2rem);
-    }
-
-    h2::before {
-      content: "";
-      flex: 0 0 5px;
-      width: 5px;
-      height: 1.35em;
-      background: var(--blue);
-      border-radius: 999px;
+      margin: 48px 0 18px;
+      padding-left: 14px;
+      border-left: 5px solid var(--blue);
+      font-size: clamp(24px, 3vw, 32px);
     }
 
     h3 {
-      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-size: 18px;
     }
 
     p {
-      margin: 0;
+      margin: 0 0 12px;
     }
 
-    .hero__lead {
-      max-width: 820px;
-      margin: 22px 0 0;
-      margin-top: 22px;
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.4em;
+    }
+
+    li {
+      margin-bottom: 6px;
       color: var(--gray-700);
-      font-size: clamp(1rem, 1.7vw, 1.16rem);
     }
 
-    .hero__actions {
-    .hero__tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 18px;
-      color: var(--white);
-      background: var(--navy);
-      border: 1px solid var(--navy);
-      border-radius: 6px;
-      color: var(--white);
-      background: var(--navy);
-      font: inherit;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
+    .label {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-weight: 700;
     }
 
-    .button--secondary {
-    .button--outline {
-      color: var(--navy);
-      background: var(--white);
-      border-color: var(--gray-300);
+    .lead {
+      max-width: 800px;
+      margin-top: 20px;
+      color: var(--gray-700);
+      font-size: 18px;
     }
 
-    .hero__facts {
-    .hero__cards {
+    .summary {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 28px;
     }
 
-    .fact {
-      padding: 18px 18px 17px;
-    .summary-card {
-      min-height: 112px;
-      padding: 18px;
+    .summary-item,
+    .card,
+    .phase {
       background: var(--white);
       border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(16, 35, 63, 0.06);
     }
 
-    .fact span {
-    .summary-card span {
+    .summary-item {
+      padding: 18px;
+    }
+
+    .summary-item span {
       display: block;
       color: var(--gray-500);
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .fact strong {
-    .summary-card strong {
+    .summary-item strong {
       display: block;
-      margin-top: 6px;
+      margin-top: 4px;
       color: var(--navy);
-      font-size: 1.05rem;
-      line-height: 1.45;
-      font-size: 1.04rem;
-      line-height: 1.48;
+      line-height: 1.5;
     }
 
-    .nav-bar {
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--gray-200);
-      backdrop-filter: blur(14px);
-      backdrop-filter: blur(12px);
+    .card {
+      padding: 24px;
+      margin-bottom: 16px;
     }
 
-    .nav {
-    }
-
-    .nav a:hover,
-    .nav a.is-current {
-    .nav a.is-active {
-      color: var(--blue);
-      background: var(--blue-soft);
-    }
-    }
-
-    .section__head p {
-      margin: 10px 0 0;
-      margin-top: 10px;
-      color: var(--gray-700);
-    }
-
-    h2,
-    h3 {
-      margin: 0;
-      color: var(--navy);
-      line-height: 1.4;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: clamp(1.48rem, 2.4vw, 2rem);
-    }
-
-    h2::before {
-      content: "";
-      flex: 0 0 5px;
-      width: 5px;
-      height: 1.35em;
-      background: var(--blue);
-      border-radius: 999px;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    .panel {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      box-shadow: 0 12px 32px rgba(15, 35, 65, 0.05);
-      box-shadow: 0 12px 32px rgba(16, 35, 63, 0.05);
-    }
-
-    .panel p + p {
-      margin-top: 12px;
-    }
-
-    .lead-panel {
-    .intro-panel {
+    .intro {
       border-left: 5px solid var(--blue);
     }
 
-    .learning {
     .learning-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    .learning-card {
-      min-height: 220px;
-      padding: 22px;
-      background: var(--white);
+    .profile-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      background: var(--gray-100);
       border: 1px solid var(--gray-200);
-      border-radius: var(--radius);
-      min-height: 218px;
+      border-radius: 8px;
     }
 
-    .learning-card__number {
-    .learning-card__num {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      margin-top: 6px;
-    }
-
-    .profile-grid {
-    .definition {
-      display: grid;
-      gap: 14px;
-    }
-
-    .profile-item {
-    .definition__item {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 18px;
-      border-radius: var(--radius);
-    }
-
-    .profile-item dt {
-    .definition__item dt {
+    .profile-row strong {
       color: var(--blue);
-      font-weight: 900;
-    }
-
-    .profile-item dd {
-    .definition__item dd {
-      margin: 0;
-      color: var(--gray-700);
     }
 
     .phase {
       display: grid;
-      grid-template-columns: minmax(170px, 228px) 1fr;
-      grid-template-columns: minmax(170px, 226px) 1fr;
+      grid-template-columns: 190px 1fr;
       gap: 24px;
       padding: 24px;
-      background: var(--white);
-      box-shadow: var(--shadow);
+      margin-bottom: 18px;
     }
 
-    .phase__side {
-    .phase__meta {
-      padding-right: 22px;
+    .phase-meta {
+      padding-right: 20px;
       border-right: 1px solid var(--gray-200);
     }
-      line-height: 1.35;
+
+    .phase-label {
+      display: inline-block;
+      padding: 4px 10px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .phase__state,
-    .phase__purpose {
-      color: var(--gray-700);
+    .phase-time {
+      display: block;
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.4;
     }
 
-    .phase__state {
-      margin-top: 8px;
-      color: var(--gray-700);
-      font-size: 0.95rem;
-    }
-
-    .phase__purpose {
-      margin-top: 8px;
+    .phase-state {
       color: var(--gray-700);
     }
 
     .metrics {
-      align-items: stretch;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0;
     }
 
-    .pay {
-    .pay-box {
-      padding: 26px;
+    .metrics.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric {
+      padding: 12px 14px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--gray-500);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--navy);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      background: var(--white);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-200);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
       color: var(--white);
       background: var(--navy);
-      border-radius: var(--radius);
+      white-space: nowrap;
     }
 
-    .pay span {
-    .pay-box span {
-      display: block;
-      color: #c9d8ea;
-      font-weight: 800;
+    td {
+      color: var(--gray-700);
     }
 
-    .pay strong {
-    .pay-box strong {
-      display: block;
-      margin-top: 10px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
+    tbody tr:nth-child(even) td {
+      background: var(--gray-100);
     }
 
-    .pay small {
-    .pay-box small {
-      display: block;
-      margin-top: 8px;
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .message {
+      color: var(--white);
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .message h2 {
+      margin-top: 0;
+      color: var(--white);
+      border-left-color: #8fc6ff;
+    }
+
+    .message p {
       color: #edf4fb;
     }
 
-    @media (max-width: 900px) {
-      .hero__facts,
-      .learning,
-      .hero__cards,
-      .learning-grid,
-      .evaluation {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 800px) {
+      .summary,
+      .learning-grid {
         grid-template-columns: 1fr;
       }
 
-      .phase__side {
-      .phase__meta {
-        padding-right: 0;
-        padding-bottom: 16px;
-        border-right: 0;
-        padding-top: 42px;
-      }
-
-      .hero__actions {
-      .hero__tools {
-        flex-direction: column;
-      }
-
-        padding: 20px;
-      }
-
-      .profile-item,
-      .definition__item,
-      .metrics,
-      .metrics--three,
-      .focus-list {
-        padding: 0 0 22px;
-      }
-
-      .hero__actions,
-      .nav-bar {
-      .hero__tools,
-      .nav-wrap {
-        display: none;
-      }
-
-      }
-
-      .panel,
-      .fact,
-      .summary-card,
-      .learning-card,
-      .profile-item,
-      .definition__item,
       .phase,
-      .metric,
-      .table-wrap,
-      .pay,
-      .pay-box,
-      .president {
+      .profile-row {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-meta {
+        padding-right: 0;
+        padding-bottom: 14px;
+        border-right: 0;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .metrics,
+      .metrics.three {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        font-size: 11pt;
+      }
+
+      .page {
+        background: var(--white);
+      }
+
+      header,
+      main,
+      footer {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .summary-item,
+      .card,
+      .phase,
+      .metric {
         box-shadow: none;
         break-inside: avoid;
-        page-break-inside: avoid;
       }
 
-      .hero__facts,
-      .learning {
-      .hero__cards,
-      .learning-grid {
-        grid-template-columns: repeat(3, 1fr);
+      th,
+      .message {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
-
-        grid-template-columns: 160px 1fr;
-      }
-
-      .phase__side {
-      .phase__meta {
-        padding-right: 16px;
-        padding-bottom: 0;
-        border-right: 1px solid var(--gray-300);
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .pay,
-      .pay-box,
-      .president,
-      th {
-        color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
   <div class="page">
-    <header class="hero">
+    <header>
       <div class="container">
-        <p class="hero__tag">成長ロードマップ</p>
-        <p class="hero__label">成長ロードマップ</p>
+        <p class="label">成長ロードマップ</p>
         <h1>未経験からIT営業エンジニアへ成長するためのロードマップ</h1>
-        <p class="hero__lead">未経験からIT営業エンジニアへ。入社後の成長イメージ、期待役割、評価方針を、本人に分かりやすく共有するためのページです。</p>
-        <div class="hero__actions">
-        <div class="hero__tools">
-          <a class="button" href="#phases">成長フェーズを見る</a>
-          <button class="button button--secondary" type="button" id="printButton">印刷する</button>
-          <button class="button button--outline" type="button" id="printButton">印刷する</button>
-        </div>
-        <div class="hero__facts" aria-label="ロードマップ概要">
-          <div class="fact">
-        <div class="hero__cards" aria-label="ロードマップ概要">
-          <div class="summary-card">
+        <p class="lead">内定者または採用候補者本人に向けて、入社後の成長イメージ・期待役割・評価方針を分かりやすく共有するためのページです。</p>
+        <div class="summary">
+          <div class="summary-item">
             <span>育成方針</span>
             <strong>未経験から段階的に成長を支援</strong>
           </div>
-          <div class="fact">
-          <div class="summary-card">
-            <span>目指す期間</span>
-            <strong>3年以内に自走できる状態へ</strong>
+          <div class="summary-item">
+            <span>目指す姿</span>
+            <strong>3年以内に自走できるIT営業エンジニア</strong>
           </div>
-          <div class="fact">
-          <div class="summary-card">
-            <span>評価の考え方</span>
+          <div class="summary-item">
+            <span>評価方針</span>
             <strong>数値と行動面を総合的に確認</strong>
           </div>
+        </div>
       </div>
     </header>
 
-    <div class="nav-bar">
-    <div class="nav-wrap">
-      <nav class="nav container" aria-label="ページ内ナビゲーション">
-        <a href="#message">冒頭</a>
-        <a href="#learning">学習</a>
-        <div class="section__head">
+    <main>
+      <div class="container">
+        <section>
           <h2>冒頭メッセージ</h2>
-        </div>
-        <div class="panel lead-panel">
-        <div class="panel intro-panel">
-          <p>このページは、入社後にどのような考え方で成長していくかを共有するためのものです。</p>
-          <p>最初からすべてをできる必要はありません。大切なのは、素直に学び、行動し、少しずつ一人で判断できる範囲を広げていくことです。</p>
-          <p>会社としても、育成期間を設けて段階的に成長を支援します。</p>
+          <div class="card intro">
+            <p>このページは、入社後にどのような考え方で成長していくかを共有するためのものです。</p>
+            <p>最初からすべてをできる必要はありません。大切なのは、素直に学び、行動し、少しずつ一人で判断できる範囲を広げていくことです。</p>
+            <p>会社としても、育成期間を設けて段階的に成長を支援します。</p>
+          </div>
+        </section>
+
+        <section>
           <h2>取得・学習してほしいもの</h2>
-          <p>仕事の土台となる知識と考え方を、実務と並行して少しずつ身につけていきます。</p>
-        </div>
-        <div class="learning">
-        <div class="learning-grid">
-          <article class="learning-card">
-            <div class="learning-card__number">1</div>
-            <div class="learning-card__num">1</div>
-            <h3>証明書・基礎資格</h3>
-            <ul>
-              <li>原付免許の取得</li>
-            </ul>
-          </article>
-          <article class="learning-card">
-            <div class="learning-card__number">2</div>
-            <div class="learning-card__num">2</div>
-            <h3>IT基礎</h3>
-            <ul>
-              <li>ITパスポート試験の取得</li>
-            </ul>
-          </article>
-          <article class="learning-card">
-            <div class="learning-card__number">3</div>
-            <div class="learning-card__num">3</div>
-            <h3>人生・仕事の基礎</h3>
-            <ul>
-              <li>「7つの習慣」の読破</li>
-        <div class="section__head">
+          <div class="learning-grid">
+            <div class="card">
+              <h3>証明書・基礎資格</h3>
+              <ul>
+                <li>原付免許の取得</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>IT基礎</h3>
+              <ul>
+                <li>ITパスポート試験の取得</li>
+                <li>CBT方式での受験も可</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>人生・仕事の基礎</h3>
+              <ul>
+                <li>「7つの習慣」の読破</li>
+                <li>仕事に対する考え方、主体性、信頼関係づくりの基礎として位置づける</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
           <h2>目指す人物像</h2>
-        </div>
-        <dl class="profile-grid">
-          <div class="profile-item">
-        <dl class="definition">
-          <div class="definition__item">
-            <dt>目的</dt>
-            <dd>将来的に会社の中核を担う人材を育成すること。</dd>
+          <div class="profile-row">
+            <strong>目的</strong>
+            <p>将来的に会社の中核を担う人材を育成すること。</p>
           </div>
-          <div class="profile-item">
-          <div class="definition__item">
-            <dt>目標</dt>
-            <dd>3年以内に、一人称で顧客対応・提案・簡単な技術理解を含めて行動できるIT営業エンジニアを目指す。</dd>
+          <div class="profile-row">
+            <strong>目標</strong>
+            <p>3年以内に、一人称で顧客対応・提案・簡単な技術理解を含めて行動できるIT営業エンジニアを目指す。</p>
           </div>
-          <div class="profile-item">
-          <div class="definition__item">
-            <dt>補足</dt>
-            <dd>ここでいう「一人称で行動できる」とは、すべてを一人で抱え込むという意味ではありません。分からないことは確認しながらも、自分で考え、判断し、責任を持って顧客対応できる状態を意味します。</dd>
+          <div class="profile-row">
+            <strong>補足</strong>
+            <p>ここでいう「一人称で行動できる」とは、すべてを一人で抱え込むという意味ではありません。分からないことは確認しながらも、自分で考え、判断し、責任を持って顧客対応できる状態を意味します。</p>
           </div>
-        </div>
-        <div class="timeline">
+        </section>
+
+        <section>
+          <h2>成長フェーズ</h2>
+
           <article class="phase">
-            <div class="phase__side">
-            <div class="phase__meta">
-              <span class="phase__label">フェーズ1</span>
-              <span class="phase__time">入社後〜6ヶ月</span>
-              <p class="phase__state">基礎習得・社長補助</p>
+            <div class="phase-meta">
+              <span class="phase-label">フェーズ1</span>
+              <span class="phase-time">入社後〜6ヶ月</span>
+              <p class="phase-state">基礎習得・社長補助</p>
+            </div>
+            <div>
+              <h3>営業・IT・顧客対応の土台を作る期間</h3>
+              <p>基礎理解と社長補助を通じて、営業・IT・顧客対応の土台を作る期間です。</p>
+              <ul>
+                <li>インバウンド営業の基礎を学ぶ</li>
+                <li>社長の補助スタッフとしてノウハウやスキルを習得する</li>
+                <li>AIツールを活用して提案資料や販売促進資料を作成する</li>
+                <li>商材理解、顧客対応の流れ、見積・提案の基礎を学ぶ</li>
+              </ul>
+              <p>この期間は売上・粗利の数値目標よりも、学習姿勢・行動量・理解度を重視します。</p>
+            </div>
           </article>
 
           <article class="phase">
-            <div class="phase__side">
-            <div class="phase__meta">
-              <span class="phase__label">フェーズ2</span>
-              <span class="phase__time">入社後〜1年</span>
-              <p class="phase__state">補助ありで顧客対応</p>
+            <div class="phase-meta">
+              <span class="phase-label">フェーズ2</span>
+              <span class="phase-time">入社後〜1年</span>
+              <p class="phase-state">補助ありで顧客対応</p>
+            </div>
+            <div>
+              <h3>社長の補助を受けながら、顧客対応ができる状態を目指す</h3>
+              <div class="metrics">
+                <div class="metric"><span>月間粗利目安</span><strong>60万〜80万円</strong></div>
+                <div class="metric"><span>月間売上目安</span><strong>150万〜200万円</strong></div>
+              </div>
+              <ul>
+                <li>小規模案件の対応</li>
+                <li>インバウンド問い合わせへの一次対応</li>
+                <li>提案書、見積書作成の補助</li>
+                <li>社長確認のもとで顧客とのやり取りを行う</li>
+              </ul>
+            </div>
           </article>
 
           <article class="phase">
-            <div class="phase__side">
-            <div class="phase__meta">
-              <span class="phase__label">フェーズ3</span>
-              <span class="phase__time">入社後〜1年6ヶ月</span>
-              <p class="phase__state">営業として一人称対応</p>
+            <div class="phase-meta">
+              <span class="phase-label">フェーズ3</span>
+              <span class="phase-time">入社後〜1年6ヶ月</span>
+              <p class="phase-state">営業として一人称対応</p>
+            </div>
+            <div>
+              <h3>営業担当として、一人称で顧客対応できる状態を目指す</h3>
+              <div class="metrics">
+                <div class="metric"><span>月間粗利目安</span><strong>120万〜150万円</strong></div>
+                <div class="metric"><span>月間売上目安</span><strong>300万〜375万円</strong></div>
+              </div>
+              <ul>
+                <li>問い合わせ対応から提案、受注までの一連の流れを担当</li>
+                <li>既存顧客への追加提案</li>
+                <li>代理店や紹介案件への対応</li>
+                <li>必要に応じて社長に相談しながら案件を進める</li>
+              </ul>
+            </div>
           </article>
 
           <article class="phase">
-            <div class="phase__side">
-            <div class="phase__meta">
-              <span class="phase__label">フェーズ4</span>
-              <span class="phase__time">入社後〜2年</span>
-              <p class="phase__state">技術理解を含む顧客対応</p>
+            <div class="phase-meta">
+              <span class="phase-label">フェーズ4</span>
+              <span class="phase-time">入社後〜2年</span>
+              <p class="phase-state">技術理解を含む顧客対応</p>
+            </div>
+            <div>
+              <h3>ITインフラやエンジニアリング領域の理解を深める</h3>
+              <div class="metrics">
+                <div class="metric"><span>月間粗利目安</span><strong>150万〜200万円</strong></div>
+                <div class="metric"><span>月間売上目安</span><strong>375万〜500万円</strong></div>
+              </div>
+              <ul>
+                <li>ITインフラ関連の基礎知識を習得する</li>
+                <li>エンジニアと連携して顧客課題を整理する</li>
+                <li>社長の補助を受けながら、技術的な会話を含む顧客対応を行う</li>
+                <li>提案内容の精度を高める</li>
+              </ul>
+            </div>
           </article>
 
           <article class="phase">
-            <div class="phase__side">
-            <div class="phase__meta">
-              <span class="phase__label">フェーズ5</span>
-              <span class="phase__time">入社後〜3年</span>
-              <p class="phase__state">IT営業エンジニアとして自走</p>
+            <div class="phase-meta">
+              <span class="phase-label">フェーズ5</span>
+              <span class="phase-time">入社後〜3年</span>
+              <p class="phase-state">IT営業エンジニアとして自走</p>
+            </div>
+            <div>
+              <h3>IT営業エンジニアとして、自走できる状態を目指す</h3>
+              <div class="metrics three">
+                <div class="metric"><span>月間粗利目安</span><strong>200万〜250万円</strong></div>
+                <div class="metric"><span>年間粗利目安</span><strong>2,500万〜3,000万円</strong></div>
+                <div class="metric"><span>月間売上目安</span><strong>500万〜625万円</strong></div>
+              </div>
+              <ul>
+                <li>顧客課題のヒアリング</li>
+                <li>提案設計</li>
+                <li>見積作成</li>
+                <li>受注後の社内連携</li>
+                <li>代理店やパートナーとの関係構築</li>
+                <li>自分で考え、必要な確認を取りながら案件を前に進める</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <h2>数値目標一覧表</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>フェーズ</th>
+                  <th>時期</th>
+                  <th>状態</th>
+                  <th>月間粗利目安</th>
+                  <th>月間売上目安</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>フェーズ1</td>
+                  <td>〜6ヶ月</td>
+                  <td>基礎習得・社長補助</td>
+                  <td>数値目標なし</td>
+                  <td>数値目標なし</td>
+                </tr>
+                <tr>
+                  <td>フェーズ2</td>
+                  <td>〜1年</td>
+                  <td>補助ありで顧客対応</td>
+                  <td>60万〜80万円</td>
+                  <td>150万〜200万円</td>
+                </tr>
+                <tr>
+                  <td>フェーズ3</td>
+                  <td>〜1年6ヶ月</td>
+                  <td>営業として一人称対応</td>
+                  <td>120万〜150万円</td>
+                  <td>300万〜375万円</td>
+                </tr>
+                <tr>
+                  <td>フェーズ4</td>
+                  <td>〜2年</td>
+                  <td>技術理解を含む顧客対応</td>
+                  <td>150万〜200万円</td>
+                  <td>375万〜500万円</td>
+                </tr>
+                <tr>
+                  <td>フェーズ5</td>
+                  <td>〜3年</td>
+                  <td>IT営業エンジニアとして自走</td>
+                  <td>200万〜250万円</td>
+                  <td>500万〜625万円</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
           <h2>評価・待遇について</h2>
-        </div>
-        <div class="evaluation">
-          <div class="pay">
-          <div class="pay-box">
-            <span>初期待遇</span>
-            <strong>時給1,200円</strong>
-            <small>からスタート</small>
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((link) => {
-          link.classList.toggle("is-current", link.getAttribute("href") === `#${entry.target.id}`);
-          link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
-        });
-      });
-    }, { rootMargin: "-35% 0px -55% 0px" });
-        </body>
+          <div class="card">
+            <p><strong>初期待遇：</strong>時給1,200円からスタート</p>
+            <p>フェーズ2の水準に到達し、粗利・売上・行動面・成長姿勢を総合的に確認したうえで、賃金改定および社員登用を検討します。</p>
+            <p>数値だけで判断するのではなく、以下も重視します。</p>
+            <ul>
+              <li>学ぶ姿勢</li>
+              <li>報告・連絡・相談</li>
+              <li>顧客への誠実な対応</li>
+              <li>社内メンバーとの連携</li>
+              <li>AIツールやITツールを活用する姿勢</li>
+              <li>自分で考えて行動する力</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="card message">
+            <h2>最後の社長メッセージ</h2>
+            <p>最初から完璧である必要はありません。ただし、受け身ではなく、自分から学び、行動し、成長していく姿勢を大切にしてください。</p>
+            <p>会社としても、未経験からでも成長できる環境を用意します。3年後には、顧客から信頼され、社内でも頼られるIT営業エンジニアになってほしいと考えています。</p>
+            <p>一緒に会社を成長させていける存在になってくれることを期待しています。</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>未経験からIT営業エンジニアへ成長するためのロードマップ</p>
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
